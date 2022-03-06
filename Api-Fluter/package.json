@@ -1,0 +1,22 @@
+{
+  "name": "API-FLUTER",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "pg": "^8.7.3",
+    "sequelize": "^6.17.0",
+    "sucrase": "^3.20.3"
+  },
+  "scripts": {
+    "dev": "nodemon src/server.js"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15",
+    "sequelize-cli": "^6.4.1"
+  },
+  "repository": "https://github.com/Allexandre-Meneses/apiBasicaNodeJs.git",
+  "author": "Manoel-Moura <manoelmourabcc@gmail.com>"
+}
