@@ -280,7 +280,8 @@ class AtualizaProduto extends StatelessWidget {
                               }
                               if (categoriaController.text != '') {
                                 produto = await cardap.AlteraCategoriaProduto(
-                                    id, '${categoriaController.text}');
+                                    id,
+                                    '${categoriaController.text.toLowerCase()}');
                               }
                               if (ingredientesController.text != '') {
                                 produto =

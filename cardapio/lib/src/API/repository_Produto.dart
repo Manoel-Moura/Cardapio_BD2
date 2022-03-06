@@ -143,6 +143,8 @@ class RepositoryProd {
     return LoginApiModel();
   }
 
+  // /buscaCategoriaProduto/:categoria
+
   Future<ProdutoApiModel> BuscaIdProduto(int id) async {
     Dio dio = Dio();
     dio.options.baseUrl = baseUrl;
@@ -156,5 +158,20 @@ class RepositoryProd {
     }
 
     return ProdutoApiModel();
+  }
+
+  Future<CardapioApiModel> BuscaCategoriaProduto(String categoria) async {
+    Dio dio = Dio();
+    dio.options.baseUrl = baseUrl;
+    var resposta;
+    //print(dio.toString());
+
+    resposta = await dio.get('/buscaCategoriaProduto/$categoria');
+
+    if (resposta.statusCode == 200) {
+      return CardapioApiModel.fromJson(resposta.data);
+    }
+
+    return CardapioApiModel();
   }
 }

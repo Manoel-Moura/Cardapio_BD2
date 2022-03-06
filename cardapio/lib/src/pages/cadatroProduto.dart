@@ -270,7 +270,7 @@ class CadastroProduto extends StatelessWidget {
                           '${nameController.text}',
                           '${ingredientesController.text}',
                           double.parse('${precoController.text}'),
-                          '${categoriaController.text}',
+                          '${categoriaController.text.toLowerCase()}',
                           '${urlController.text}',
                         );
                         print(produto.resultado);

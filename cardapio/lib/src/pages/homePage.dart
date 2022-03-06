@@ -22,6 +22,109 @@ class _HomeState extends State<HomePage> {
   //     x = valor;
   //   });
   // }
+  bool islanche = false;
+  bool ishaburguer = false;
+  bool ispizza = false;
+  bool isbebida = false;
+  bool isreeficao = false;
+  bool isall = true;
+  String categoria = 'all';
+
+  toggleLanche() {
+    setState(() {
+      if (islanche) {
+        islanche = false;
+      } else {
+        islanche = true;
+        ishaburguer = false;
+        ispizza = false;
+        isbebida = false;
+        isreeficao = false;
+        isall = false;
+      }
+    });
+  }
+
+  toggleHaburguer() {
+    setState(() {
+      if (ishaburguer) {
+        ishaburguer = false;
+      } else {
+        islanche = false;
+        ishaburguer = true;
+        ispizza = false;
+        isbebida = false;
+        isreeficao = false;
+        isall = false;
+      }
+    });
+  }
+
+  togglePizza() {
+    setState(() {
+      if (ispizza) {
+        ispizza = false;
+      } else {
+        islanche = false;
+        ishaburguer = false;
+        ispizza = true;
+        isbebida = false;
+        isreeficao = false;
+        isall = false;
+      }
+    });
+  }
+
+  toggleBebida() {
+    setState(() {
+      if (isbebida) {
+        isbebida = false;
+      } else {
+        islanche = false;
+        ishaburguer = false;
+        ispizza = false;
+        isbebida = true;
+        isreeficao = false;
+        isall = false;
+      }
+    });
+  }
+
+  toggleRefeicao() {
+    setState(() {
+      if (isreeficao) {
+        isreeficao = false;
+      } else {
+        islanche = false;
+        ishaburguer = false;
+        ispizza = false;
+        isbebida = false;
+        isreeficao = true;
+        isall = false;
+      }
+    });
+  }
+
+  toggleAll() {
+    setState(() {
+      if (isall) {
+        isall = false;
+      } else {
+        islanche = false;
+        ishaburguer = false;
+        ispizza = false;
+        isbebida = false;
+        isreeficao = false;
+        isall = true;
+      }
+    });
+  }
+
+  void novCategoria(String valor) async {
+    setState(() {
+      categoria = valor;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -64,8 +167,128 @@ class _HomeState extends State<HomePage> {
                   ],
                 ),
               ),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 5, bottom: 5),
+                  child: Row(
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          novCategoria('all');
+                          toggleAll();
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                              left: 15, right: 15, bottom: 15),
+                          child: Text(
+                            'Todos',
+                            style: TextStyle(
+                              color: isall ? orange : Colors.white,
+                              fontSize: 24.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          novCategoria('bebida');
+                          toggleBebida();
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                              left: 15, right: 15, bottom: 15),
+                          child: Text(
+                            'Bebida',
+                            style: TextStyle(
+                              color: isbebida ? orange : Colors.white,
+                              fontSize: 24.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          novCategoria('hamburguer');
+                          toggleHaburguer();
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                              left: 15, right: 15, bottom: 15),
+                          child: Text(
+                            'Hamburguer',
+                            style: TextStyle(
+                              color: ishaburguer ? orange : Colors.white,
+                              fontSize: 24.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          novCategoria('lanche');
+                          toggleLanche();
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                              left: 15, right: 15, bottom: 15),
+                          child: Text(
+                            'Lanche',
+                            style: TextStyle(
+                              color: islanche ? orange : Colors.white,
+                              fontSize: 24.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          novCategoria('pizza');
+                          togglePizza();
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                              left: 15, right: 15, bottom: 15),
+                          child: Text(
+                            'Pizza',
+                            style: TextStyle(
+                              color: ispizza ? orange : Colors.white,
+                              fontSize: 24.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          novCategoria('refeicao');
+                          toggleRefeicao();
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                              left: 15, right: 15, bottom: 15),
+                          child: Text(
+                            'Refeição',
+                            style: TextStyle(
+                              color: isreeficao ? orange : Colors.white,
+                              fontSize: 24.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
               FutureBuilder(
-                future: cardap.BuscaProdutos(),
+                future: categoria == 'all'
+                    ? cardap.BuscaProdutos()
+                    : cardap.BuscaCategoriaProduto(categoria),
                 builder: (context, snapshot) {
                   if (snapshot.hasData) {
                     CardapioApiModel cardapio =
