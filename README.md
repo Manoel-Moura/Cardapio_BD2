@@ -20,8 +20,9 @@ partir de uma tela de login e senha.
 
 # 📎 Link para a documentação
 ``` 
-    ## [Planinha de funcionalidades](https://docs.google.com/spreadsheets/d/1ZFVgPh4e4z3zMFKWXffapQSS1FZG8WTj_dMTAT2T9RQ/edit?usp=sharing)
-    ## [Diagrama do projeto](https://lucid.app/lucidchart/ae85f63c-d2a1-478a-8a82-601df5a43968/edit?invitationId=inv_216e126a-cb88-446b-a164-cdafa5db925b)
+## [Planinha de funcionalidades](https://docs.google.com/spreadsheets/d/1ZFVgPh4e4z3zMFKWXffapQSS1FZG8WTj_dMTAT2T9RQ/edit?usp=sharing)
+
+## [Diagrama do projeto](https://lucid.app/lucidchart/ae85f63c-d2a1-478a-8a82-601df5a43968/edit?invitationId=inv_216e126a-cb88-446b-a164-cdafa5db925b)
   
 
 
