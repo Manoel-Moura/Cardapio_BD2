@@ -3,6 +3,7 @@ import 'package:cardapio/src/API/repository_Usuario.dart';
 import 'package:cardapio/src/models/produtoApiModel.dart';
 import 'package:cardapio/src/models/userApiModel.dart';
 import 'package:cardapio/src/pages/buscaIdProduto.dart';
+import 'package:cardapio/src/pages/homePage.dart';
 import 'package:cardapio/src/pages/login.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -47,6 +48,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     RepositoryProd cardap = Provider.of(context);
     //return SafeArea(child: BuscaIdProduto());
-    return LoginPage();
+    //return LoginPage();
+    return HomePage();
   }
 }
