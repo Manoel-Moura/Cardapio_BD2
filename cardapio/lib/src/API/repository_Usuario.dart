@@ -4,6 +4,7 @@ import 'package:dio/dio.dart';
 
 class RepositoryUser {
   final String baseUrl = 'http://localhost:3333';
+  //final String baseUrl = 'http://10.0.0.155:3333';
   //final String endpoint = '/flutter/produtos/listar.php';
 
   Future<LoginApiModel> CadastrarUsuario(

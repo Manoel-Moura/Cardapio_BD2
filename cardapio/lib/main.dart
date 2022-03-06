@@ -50,8 +50,8 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     RepositoryProd cardap = Provider.of(context);
     //return SafeArea(child: BuscaIdProduto());
-    //return LoginPage();
-    return HomePage();
+    return LoginPage();
+    //return HomePage();
     //return CadastroProduto();
     //return AtualizaProduto();
   }

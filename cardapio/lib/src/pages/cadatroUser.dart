@@ -229,6 +229,7 @@ class Cadastro extends StatelessWidget {
                             '${nameController.text}',
                             '${emailController.text}',
                             '${passwordController.text}');
+                        print(usuario.resultado);
                         if (usuario.resultado == 0) {
                           Navigator.of(context).push(
                             MaterialPageRoute(
