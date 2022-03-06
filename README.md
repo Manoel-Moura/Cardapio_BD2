@@ -24,12 +24,5 @@ partir de uma tela de login e senha.
     ## [Diagrama do projeto](https://lucid.app/lucidchart/ae85f63c-d2a1-478a-8a82-601df5a43968/edit?invitationId=inv_216e126a-cb88-446b-a164-cdafa5db925b)
   
 
-# 🔥 Algumas das telas
 
-<img align="center" width="50%" height="50%" src="lib/src/assets/images/cadastro.jpg" /> 
-<img align="center" width="50%" height="50%" src="lib/src/assets/images/cadastroProduto.jpg" /> 
-<img align="center" width="50%" height="50%" src="lib/src/assets/images/EditarProduto.jpg" /> 
-<img align="center" width="50%" height="50%" src="lib/src/assets/images/homeLanche.jpg" /> 
-<img align="center" width="50%" height="50%" src="lib/src/assets/images/homeTodos.jpg" /> 
-<img align="center" width="50%" height="50%" src="lib/src/assets/images/login.jpg" /> 
 
