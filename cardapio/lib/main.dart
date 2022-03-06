@@ -2,7 +2,9 @@ import 'package:cardapio/src/API/repository_Produto.dart';
 import 'package:cardapio/src/API/repository_Usuario.dart';
 import 'package:cardapio/src/models/produtoApiModel.dart';
 import 'package:cardapio/src/models/userApiModel.dart';
+import 'package:cardapio/src/pages/atualizaProduto.dart';
 import 'package:cardapio/src/pages/buscaIdProduto.dart';
+import 'package:cardapio/src/pages/cadatroProduto.dart';
 import 'package:cardapio/src/pages/homePage.dart';
 import 'package:cardapio/src/pages/login.dart';
 import 'package:flutter/material.dart';
@@ -50,5 +52,7 @@ class _HomeState extends State<Home> {
     //return SafeArea(child: BuscaIdProduto());
     //return LoginPage();
     return HomePage();
+    //return CadastroProduto();
+    //return AtualizaProduto();
   }
 }

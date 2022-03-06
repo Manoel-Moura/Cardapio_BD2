@@ -1,6 +1,8 @@
 import 'package:cardapio/src/API/repository_Produto.dart';
 import 'package:cardapio/src/assets/colors/colors.dart';
 import 'package:cardapio/src/models/cardapioApiModel.dart';
+import 'package:cardapio/src/pages/atualizaProduto.dart';
+import 'package:cardapio/src/pages/cadatroProduto.dart';
 import 'package:cardapio/src/widget/card.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -162,7 +164,17 @@ class _HomeState extends State<HomePage> {
                                           //crossAxisAlignment: CrossAxisAlignment.end,
                                           children: [
                                             GestureDetector(
-                                              onTap: () {},
+                                              onTap: () {
+                                                Navigator.of(context).push(
+                                                  MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        AtualizaProduto(
+                                                            id: int.parse(
+                                                                '${e.id}')),
+                                                  ),
+                                                );
+                                                //setState(() {});
+                                              },
                                               child: Container(
                                                 padding: EdgeInsets.all(6),
                                                 decoration: BoxDecoration(
@@ -230,7 +242,13 @@ class _HomeState extends State<HomePage> {
                 padding: const EdgeInsets.only(right: 60, left: 60, top: 15),
                 child: Center(
                   child: TextButton(
-                    onPressed: () async {},
+                    onPressed: () async {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => CadastroProduto(),
+                        ),
+                      );
+                    },
                     child: Text(
                       'Adicionar',
                       style: const TextStyle(
