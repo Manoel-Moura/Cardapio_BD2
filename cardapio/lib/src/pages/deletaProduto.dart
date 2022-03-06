@@ -1,6 +1,7 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import '../API/repository_Produto.dart';
 import '../models/userApiModel.dart';
 
@@ -17,38 +18,25 @@ class DeletaProduto extends StatelessWidget {
           if (snapshot.hasData) {
             LoginApiModel cardapio = snapshot.data as LoginApiModel;
 
-            if (cardapio.resultado == 0)
-              return Center(
-                child: Container(
-                  child: Text(
-                    "Produto Deletado",
-                  ),
+            if (cardapio.resultado == 0) {
+              return const Center(
+                child: Text(
+                  "Produto Deletado",
                 ),
               );
-            else
-              return Center(
-                child: Container(
-                  child: Text(
-                    "Produto nao encontrado",
-                  ),
+            } else {
+              return const Center(
+                child: Text(
+                  "Produto nao encontrado",
                 ),
               );
+            }
           }
           return const CircularProgressIndicator(
             color: Colors.red,
           );
         },
       ),
-      // Container(
-      //   child: ListView.builder(
-      //     itemCount: lista.dados != null ? lista.dados.lenth : 0,
-      //     itemBuilder: (context, i) {
-      //       final item = lista.dados[i];
-      //       print(lista);
-      //       return Container();
-      //     },
-      //   ),
-      // ),
     );
   }
 }

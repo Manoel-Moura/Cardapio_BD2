@@ -1,16 +1,18 @@
+// ignore_for_file: file_names
+
 class UserApiModel {
   User? user;
 
   UserApiModel({this.user});
 
   UserApiModel.fromJson(Map<String, dynamic> json) {
-    user = json['user'] != null ? new User.fromJson(json['user']) : null;
+    user = json['user'] != null ? User.fromJson(json['user']) : null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.user != null) {
-      data['user'] = this.user!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (user != null) {
+      data['user'] = user!.toJson();
     }
     return data;
   }
@@ -30,10 +32,10 @@ class User {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['name'] = this.name;
-    data['email'] = this.email;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['name'] = name;
+    data['email'] = email;
     return data;
   }
 }
@@ -48,8 +50,8 @@ class LoginApiModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['resultado'] = this.resultado;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['resultado'] = resultado;
     return data;
   }
 }

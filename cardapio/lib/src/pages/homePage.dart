@@ -1,9 +1,10 @@
+// ignore_for_file: file_names
+
 import 'package:cardapio/src/API/repository_Produto.dart';
 import 'package:cardapio/src/assets/colors/colors.dart';
 import 'package:cardapio/src/models/cardapioApiModel.dart';
 import 'package:cardapio/src/pages/atualizaProduto.dart';
 import 'package:cardapio/src/pages/cadatroProduto.dart';
-import 'package:cardapio/src/widget/card.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -16,12 +17,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomeState extends State<HomePage> {
-  // int x = 0;
-  // void novCategoria(int valor) async {
-  //   setState(() {
-  //     x = valor;
-  //   });
-  // }
   bool islanche = false;
   bool ishaburguer = false;
   bool ispizza = false;
@@ -331,7 +326,8 @@ class _HomeState extends State<HomePage> {
                                               padding: const EdgeInsets.only(
                                                   top: 70, left: 60),
                                               child: Container(
-                                                padding: EdgeInsets.all(6),
+                                                padding:
+                                                    const EdgeInsets.all(6),
                                                 decoration: BoxDecoration(
                                                   borderRadius:
                                                       BorderRadius.circular(5),
@@ -339,13 +335,11 @@ class _HomeState extends State<HomePage> {
                                                 ),
                                                 child: Text(
                                                   'R\$ ${e.preco}',
-                                                  style: TextStyle(
+                                                  style: const TextStyle(
                                                       color: Colors.white,
                                                       fontWeight:
                                                           FontWeight.bold),
                                                 ),
-                                                //height: 30,
-                                                // width: 60,
                                               ),
                                             ),
                                           ],
@@ -366,7 +360,7 @@ class _HomeState extends State<HomePage> {
                                             Padding(
                                               padding: const EdgeInsets.only(
                                                   right: 5, left: 5),
-                                              child: Container(
+                                              child: SizedBox(
                                                 width: MediaQuery.of(context)
                                                         .size
                                                         .width /
@@ -374,7 +368,7 @@ class _HomeState extends State<HomePage> {
                                                 child: Text(
                                                   '${e.ingredientes}',
                                                   textAlign: TextAlign.center,
-                                                  style: TextStyle(
+                                                  style: const TextStyle(
                                                     color: Colors.white,
                                                   ),
                                                 ),
@@ -399,13 +393,14 @@ class _HomeState extends State<HomePage> {
                                                 //setState(() {});
                                               },
                                               child: Container(
-                                                padding: EdgeInsets.all(6),
+                                                padding:
+                                                    const EdgeInsets.all(6),
                                                 decoration: BoxDecoration(
                                                   borderRadius:
                                                       BorderRadius.circular(5),
                                                   color: Colors.green,
                                                 ),
-                                                child: Text(
+                                                child: const Text(
                                                   'Editar',
                                                   style: TextStyle(
                                                       color: Colors.white,
@@ -425,14 +420,15 @@ class _HomeState extends State<HomePage> {
                                                   setState(() {});
                                                 },
                                                 child: Container(
-                                                  padding: EdgeInsets.all(6),
+                                                  padding:
+                                                      const EdgeInsets.all(6),
                                                   decoration: BoxDecoration(
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             5),
                                                     color: red,
                                                   ),
-                                                  child: Text(
+                                                  child: const Text(
                                                     'Remover',
                                                     style: TextStyle(
                                                         color: Colors.white,
@@ -462,7 +458,8 @@ class _HomeState extends State<HomePage> {
                 },
               ),
               Padding(
-                padding: const EdgeInsets.only(right: 60, left: 60, top: 15),
+                padding: const EdgeInsets.only(
+                    right: 60, left: 60, top: 15, bottom: 15),
                 child: Center(
                   child: TextButton(
                     onPressed: () async {
@@ -472,9 +469,9 @@ class _HomeState extends State<HomePage> {
                         ),
                       );
                     },
-                    child: Text(
+                    child: const Text(
                       'Adicionar',
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 18.0,
                       ),

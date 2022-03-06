@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 class ProdutoApiModel {
   int? resultado;
   Produto? produto;
@@ -7,14 +9,14 @@ class ProdutoApiModel {
   ProdutoApiModel.fromJson(Map<String, dynamic> json) {
     resultado = json['resultado'];
     produto =
-        json['produto'] != null ? new Produto.fromJson(json['produto']) : null;
+        json['produto'] != null ? Produto.fromJson(json['produto']) : null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['resultado'] = this.resultado;
-    if (this.produto != null) {
-      data['produto'] = this.produto!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['resultado'] = resultado;
+    if (produto != null) {
+      data['produto'] = produto!.toJson();
     }
     return data;
   }
@@ -24,7 +26,7 @@ class Produto {
   int? id;
   String? nome;
   String? ingredientes;
-  double? preco;
+  num? preco;
   String? categoria;
   String? imagemurl;
   String? createdAt;
@@ -52,15 +54,15 @@ class Produto {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['nome'] = this.nome;
-    data['ingredientes'] = this.ingredientes;
-    data['preco'] = this.preco;
-    data['categoria'] = this.categoria;
-    data['imagemurl'] = this.imagemurl;
-    data['createdAt'] = this.createdAt;
-    data['updatedAt'] = this.updatedAt;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['nome'] = nome;
+    data['ingredientes'] = ingredientes;
+    data['preco'] = preco;
+    data['categoria'] = categoria;
+    data['imagemurl'] = imagemurl;
+    data['createdAt'] = createdAt;
+    data['updatedAt'] = updatedAt;
     return data;
   }
 }

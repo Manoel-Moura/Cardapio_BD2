@@ -1,3 +1,5 @@
+// ignore_for_file: file_names, must_be_immutable, unrelated_type_equality_checks
+
 import 'package:cardapio/src/assets/colors/colors.dart';
 import 'package:cardapio/src/pages/homePage.dart';
 import 'package:flutter/material.dart';
@@ -5,7 +7,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 import '../API/repository_Produto.dart';
-import '../models/userApiModel.dart';
 
 class CadastroProduto extends StatelessWidget {
   CadastroProduto({Key? key}) : super(key: key);
@@ -100,7 +101,7 @@ class CadastroProduto extends StatelessWidget {
                           width: 2.0,
                         ),
                       ),
-                      prefixIcon: Icon(
+                      prefixIcon: const Icon(
                         Icons.fastfood_outlined,
                         color: Color(0XFF1E2841),
                       ),
@@ -134,7 +135,7 @@ class CadastroProduto extends StatelessWidget {
                         width: 2.0,
                       ),
                     ),
-                    prefixIcon: Icon(
+                    prefixIcon: const Icon(
                       Icons.restaurant,
                       color: Color(0XFF1E2841),
                     ),
@@ -170,7 +171,7 @@ class CadastroProduto extends StatelessWidget {
                           width: 2.0,
                         ),
                       ),
-                      prefixIcon: Icon(
+                      prefixIcon: const Icon(
                         Icons.attach_money,
                         color: Color(0XFF1E2841),
                       ),
@@ -206,7 +207,7 @@ class CadastroProduto extends StatelessWidget {
                           width: 2.0,
                         ),
                       ),
-                      prefixIcon: Icon(
+                      prefixIcon: const Icon(
                         Icons.category_outlined,
                         color: Color(0XFF1E2841),
                       ),
@@ -242,7 +243,7 @@ class CadastroProduto extends StatelessWidget {
                           width: 2.0,
                         ),
                       ),
-                      prefixIcon: Icon(
+                      prefixIcon: const Icon(
                         Icons.link,
                         color: Color(0XFF1E2841),
                       ),
@@ -256,28 +257,22 @@ class CadastroProduto extends StatelessWidget {
                 Center(
                   child: TextButton(
                     onPressed: () async {
-                      print(nameController.text);
-                      print(ingredientesController.text);
-                      print(categoriaController.text);
-                      print(precoController.text);
-                      print(urlController.text);
-                      // print(passwordController.text);
                       if (nameController.text != '' &&
-                          precoController.text != null &&
+                          precoController.text != '' &&
                           urlController.text != '' &&
                           categoriaController != '') {
                         var produto = await cardap.CadastraProduto(
-                          '${nameController.text}',
-                          '${ingredientesController.text}',
-                          double.parse('${precoController.text}'),
-                          '${categoriaController.text.toLowerCase()}',
-                          '${urlController.text}',
+                          nameController.text,
+                          ingredientesController.text,
+                          double.parse(precoController.text),
+                          categoriaController.text.toLowerCase(),
+                          urlController.text,
                         );
-                        print(produto.resultado);
+
                         if (produto.resultado == 0) {
                           Navigator.of(context).push(
                             MaterialPageRoute(
-                              builder: (context) => HomePage(),
+                              builder: (context) => const HomePage(),
                             ),
                           );
                         }
@@ -286,9 +281,9 @@ class CadastroProduto extends StatelessWidget {
                         // }
                       }
                     },
-                    child: Text(
+                    child: const Text(
                       'Cadastrar',
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 18.0,
                       ),
@@ -310,51 +305,5 @@ class CadastroProduto extends StatelessWidget {
         ),
       ),
     );
-
-    // return Scaffold(
-    //   body: FutureBuilder(
-    //     future: cardap.CadastraProduto(
-    //         "Coquinha",
-    //         "Uma coca de 300ml juntamente com uma Loli",
-    //         54.93,
-    //         "Bebidas",
-    //         "https://ih1.redbubble.net/image.434510290.8389/st,small,507x507-pad,600x600,f8f8f8.u4.jpg"),
-    //     builder: (context, snapshot) {
-    //       if (snapshot.hasData) {
-    //         LoginApiModel cardapio = snapshot.data as LoginApiModel;
-
-    //         if (cardapio.resultado == 0)
-    //           return Center(
-    //             child: Container(
-    //               child: Text(
-    //                 "Cadastrado",
-    //               ),
-    //             ),
-    //           );
-    //         else
-    //           return Center(
-    //             child: Container(
-    //               child: Text(
-    //                 "Produto ja cadatrado",
-    //               ),
-    //             ),
-    //           );
-    //       }
-    //       return const CircularProgressIndicator(
-    //         color: Colors.red,
-    //       );
-    //     },
-    //   ),
-    //   // Container(
-    //   //   child: ListView.builder(
-    //   //     itemCount: lista.dados != null ? lista.dados.lenth : 0,
-    //   //     itemBuilder: (context, i) {
-    //   //       final item = lista.dados[i];
-    //   //       print(lista);
-    //   //       return Container();
-    //   //     },
-    //   //   ),
-    //   // ),
-    // );
   }
 }

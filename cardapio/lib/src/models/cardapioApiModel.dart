@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 class CardapioApiModel {
   List<Produtos>? produtos;
 
@@ -7,15 +9,15 @@ class CardapioApiModel {
     if (json['produtos'] != null) {
       produtos = <Produtos>[];
       json['produtos'].forEach((v) {
-        produtos!.add(new Produtos.fromJson(v));
+        produtos!.add(Produtos.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.produtos != null) {
-      data['produtos'] = this.produtos!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (produtos != null) {
+      data['produtos'] = produtos!.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -25,7 +27,7 @@ class Produtos {
   int? id;
   String? nome;
   String? ingredientes;
-  double? preco;
+  num? preco;
   String? categoria;
   String? imagemurl;
   String? createdAt;
@@ -53,15 +55,15 @@ class Produtos {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['nome'] = this.nome;
-    data['ingredientes'] = this.ingredientes;
-    data['preco'] = this.preco;
-    data['categoria'] = this.categoria;
-    data['imagemurl'] = this.imagemurl;
-    data['createdAt'] = this.createdAt;
-    data['updatedAt'] = this.updatedAt;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['nome'] = nome;
+    data['ingredientes'] = ingredientes;
+    data['preco'] = preco;
+    data['categoria'] = categoria;
+    data['imagemurl'] = imagemurl;
+    data['createdAt'] = createdAt;
+    data['updatedAt'] = updatedAt;
     return data;
   }
 }

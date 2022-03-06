@@ -1,14 +1,13 @@
 // import 'package:cardapio/src/colors/colors.dart';
-import 'package:cardapio/main.dart';
+// ignore_for_file: must_be_immutable
+
 import 'package:cardapio/src/pages/cadatroUser.dart';
 import 'package:cardapio/src/pages/homePage.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import '../API/repository_Usuario.dart';
 import '../assets/colors/colors.dart';
-import '../models/userApiModel.dart';
 
 class LoginPage extends StatelessWidget {
   TextEditingController emailController = TextEditingController();
@@ -41,13 +40,6 @@ class LoginPage extends StatelessWidget {
                             fontWeight: FontWeight.bold,
                             fontSize: 50,
                           ),
-
-                          // TextStyle(
-                          //   color: Colors.white,
-                          //   fontWeight: FontWeight.bold,
-                          //   fontSize: 37,
-                          //   //fontFamily: 'RockSalt',
-                          // ),
                         ),
                         Text(
                           "Lanches",
@@ -98,7 +90,7 @@ class LoginPage extends StatelessWidget {
                         width: 2.0,
                       ),
                     ),
-                    prefixIcon: Icon(
+                    prefixIcon: const Icon(
                       Icons.email_rounded,
                       color: Color(0XFF1E2841),
                     ),
@@ -133,7 +125,7 @@ class LoginPage extends StatelessWidget {
                           width: 2.0,
                         ),
                       ),
-                      prefixIcon: Icon(
+                      prefixIcon: const Icon(
                         Icons.lock,
                         color: Color(0XFF1E2841),
                       ),
@@ -151,8 +143,7 @@ class LoginPage extends StatelessWidget {
                       // print(passwordController.text);
 
                       var usuario = await user.LoginUsuario(
-                          '${emailController.text}',
-                          '${passwordController.text}');
+                          emailController.text, passwordController.text);
 
                       if (usuario.resultado == 0) {
                         Navigator.of(context).push(
@@ -162,9 +153,9 @@ class LoginPage extends StatelessWidget {
                         );
                       }
                     },
-                    child: Text(
+                    child: const Text(
                       'Entrar',
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 18.0,
                       ),

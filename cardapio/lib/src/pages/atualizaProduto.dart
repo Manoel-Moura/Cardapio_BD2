@@ -1,13 +1,15 @@
+// ignore_for_file: file_names, unused_local_variable
+
 import 'package:cardapio/src/assets/colors/colors.dart';
 import 'package:cardapio/src/models/produtoApiModel.dart';
 import 'package:cardapio/src/pages/homePage.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:cardapio/src/models/userApiModel.dart';
 import '../API/repository_Produto.dart';
-// import '../models/userApiModel.dart';
+import '../models/userApiModel.dart';
 
+// ignore: must_be_immutable
 class AtualizaProduto extends StatelessWidget {
   AtualizaProduto({Key? key, required this.id}) : super(key: key);
   final int id;
@@ -38,7 +40,7 @@ class AtualizaProduto extends StatelessWidget {
               if (snapshot.hasData) {
                 ProdutoApiModel cardapio = snapshot.data as ProdutoApiModel;
 
-                if (cardapio.resultado == 0)
+                if (cardapio.resultado == 0) {
                   return Container(
                     margin: const EdgeInsets.symmetric(
                         vertical: 29, horizontal: 29),
@@ -117,7 +119,7 @@ class AtualizaProduto extends StatelessWidget {
                                   width: 2.0,
                                 ),
                               ),
-                              prefixIcon: Icon(
+                              prefixIcon: const Icon(
                                 Icons.fastfood_outlined,
                                 color: Color(0XFF1E2841),
                               ),
@@ -151,7 +153,7 @@ class AtualizaProduto extends StatelessWidget {
                                 width: 2.0,
                               ),
                             ),
-                            prefixIcon: Icon(
+                            prefixIcon: const Icon(
                               Icons.restaurant,
                               color: Color(0XFF1E2841),
                             ),
@@ -187,7 +189,7 @@ class AtualizaProduto extends StatelessWidget {
                                   width: 2.0,
                                 ),
                               ),
-                              prefixIcon: Icon(
+                              prefixIcon: const Icon(
                                 Icons.attach_money,
                                 color: Color(0XFF1E2841),
                               ),
@@ -223,7 +225,7 @@ class AtualizaProduto extends StatelessWidget {
                                   width: 2.0,
                                 ),
                               ),
-                              prefixIcon: Icon(
+                              prefixIcon: const Icon(
                                 Icons.category_outlined,
                                 color: Color(0XFF1E2841),
                               ),
@@ -259,7 +261,7 @@ class AtualizaProduto extends StatelessWidget {
                                   width: 2.0,
                                 ),
                               ),
-                              prefixIcon: Icon(
+                              prefixIcon: const Icon(
                                 Icons.link,
                                 color: Color(0XFF1E2841),
                               ),
@@ -276,21 +278,20 @@ class AtualizaProduto extends StatelessWidget {
                               LoginApiModel produto;
                               if (nameController.text != '') {
                                 produto = await cardap.AlteraNomeProduto(
-                                    id, '${nameController.text}');
+                                    id, nameController.text);
                               }
                               if (categoriaController.text != '') {
                                 produto = await cardap.AlteraCategoriaProduto(
-                                    id,
-                                    '${categoriaController.text.toLowerCase()}');
+                                    id, categoriaController.text.toLowerCase());
                               }
                               if (ingredientesController.text != '') {
                                 produto =
                                     await cardap.AlteraIngredientesProduto(
-                                        id, '${ingredientesController.text}');
+                                        id, ingredientesController.text);
                               }
                               if (urlController.text != '') {
                                 produto = await cardap.AlteraImagemProduto(
-                                    id, '${urlController.text}');
+                                    id, urlController.text);
                               }
                               if (precoController.text != '') {
                                 produto = await cardap.AlteraPrecoProduto(
@@ -298,37 +299,13 @@ class AtualizaProduto extends StatelessWidget {
                               }
                               Navigator.of(context).push(
                                 MaterialPageRoute(
-                                  builder: (context) => HomePage(),
+                                  builder: (context) => const HomePage(),
                                 ),
                               );
-
-                              // if (nameController.text != '' &&
-                              //     precoController.text != null &&
-                              //     urlController.text != '' &&
-                              //     categoriaController != '') {
-                              //   var produto = await cardap.CadastraProduto(
-                              //     '${nameController.text}',
-                              //     '${ingredientesController.text}',
-                              //     double.parse('${precoController.text}'),
-                              //     '${categoriaController.text}',
-                              //     '${urlController.text}',
-                              //   );
-                              //   print(produto.resultado);
-                              //   if (produto.resultado == 0) {
-                              //     Navigator.of(context).push(
-                              //       MaterialPageRoute(
-                              //         builder: (context) => HomePage(),
-                              //       ),
-                              //     );
-                              //   }
-                              // } else {
-                              //   print("Senha invalida!");
-                              // }
-                              //}
                             },
-                            child: Text(
+                            child: const Text(
                               'Atualizar',
-                              style: const TextStyle(
+                              style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 18.0,
                               ),
@@ -347,14 +324,13 @@ class AtualizaProduto extends StatelessWidget {
                       ],
                     ),
                   );
-                else
-                  return Center(
-                    child: Container(
-                      child: Text(
-                        "Produto nao encontrado",
-                      ),
+                } else {
+                  return const Center(
+                    child: Text(
+                      "Produto nao encontrado",
                     ),
                   );
+                }
               }
               return const CircularProgressIndicator(
                 color: Colors.red,

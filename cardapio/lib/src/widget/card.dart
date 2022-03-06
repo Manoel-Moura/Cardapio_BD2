@@ -1,7 +1,6 @@
 import 'package:cardapio/src/API/repository_Produto.dart';
 import 'package:cardapio/src/assets/colors/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 
 class CardMessage extends StatelessWidget {
@@ -47,19 +46,19 @@ class CardMessage extends StatelessWidget {
                 children: [
                   CircleAvatar(
                     radius: 50,
-                    backgroundImage: NetworkImage('$image'),
+                    backgroundImage: NetworkImage(image),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(top: 70, left: 60),
                     child: Container(
-                      padding: EdgeInsets.all(6),
+                      padding: const EdgeInsets.all(6),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(5),
                         color: red,
                       ),
                       child: Text(
                         'R\$ $valor',
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: Colors.white, fontWeight: FontWeight.bold),
                       ),
                       //height: 30,
@@ -72,7 +71,7 @@ class CardMessage extends StatelessWidget {
                 children: [
                   Padding(
                     padding: const EdgeInsets.only(bottom: 10),
-                    child: Text('$name',
+                    child: Text(name,
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             color: orange,
@@ -81,12 +80,12 @@ class CardMessage extends StatelessWidget {
                   ),
                   Padding(
                     padding: const EdgeInsets.only(right: 5, left: 5),
-                    child: Container(
+                    child: SizedBox(
                       width: MediaQuery.of(context).size.width / 2,
                       child: Text(
-                        '$incredientes',
+                        incredientes,
                         textAlign: TextAlign.center,
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.white,
                         ),
                       ),
@@ -101,12 +100,12 @@ class CardMessage extends StatelessWidget {
                   GestureDetector(
                     onTap: () {},
                     child: Container(
-                      padding: EdgeInsets.all(6),
+                      padding: const EdgeInsets.all(6),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(5),
                         color: Colors.green,
                       ),
-                      child: Text(
+                      child: const Text(
                         'Editar',
                         style: TextStyle(
                             color: Colors.white, fontWeight: FontWeight.bold),
@@ -120,15 +119,14 @@ class CardMessage extends StatelessWidget {
                     child: GestureDetector(
                       onTap: () {
                         produto.DeleteProduto(id!);
-                        setState() {}
                       },
                       child: Container(
-                        padding: EdgeInsets.all(6),
+                        padding: const EdgeInsets.all(6),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(5),
                           color: red,
                         ),
-                        child: Text(
+                        child: const Text(
                           'Remover',
                           style: TextStyle(
                               color: Colors.white, fontWeight: FontWeight.bold),

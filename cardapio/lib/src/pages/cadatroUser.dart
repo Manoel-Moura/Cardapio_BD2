@@ -1,12 +1,11 @@
+// ignore_for_file: file_names, must_be_immutable
+
 import 'package:cardapio/src/assets/colors/colors.dart';
-import 'package:cardapio/src/pages/homePage.dart';
 import 'package:cardapio/src/pages/login.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import '../API/repository_Usuario.dart';
-import '../models/userApiModel.dart';
 
 class Cadastro extends StatelessWidget {
   TextEditingController nameController = TextEditingController();
@@ -99,7 +98,7 @@ class Cadastro extends StatelessWidget {
                           width: 2.0,
                         ),
                       ),
-                      prefixIcon: Icon(
+                      prefixIcon: const Icon(
                         Icons.person,
                         color: Color(0XFF1E2841),
                       ),
@@ -133,7 +132,7 @@ class Cadastro extends StatelessWidget {
                         width: 2.0,
                       ),
                     ),
-                    prefixIcon: Icon(
+                    prefixIcon: const Icon(
                       Icons.email_rounded,
                       color: Color(0XFF1E2841),
                     ),
@@ -168,7 +167,7 @@ class Cadastro extends StatelessWidget {
                           width: 2.0,
                         ),
                       ),
-                      prefixIcon: Icon(
+                      prefixIcon: const Icon(
                         Icons.lock,
                         color: Color(0XFF1E2841),
                       ),
@@ -204,7 +203,7 @@ class Cadastro extends StatelessWidget {
                           width: 2.0,
                         ),
                       ),
-                      prefixIcon: Icon(
+                      prefixIcon: const Icon(
                         Icons.lock,
                         color: Color(0XFF1E2841),
                       ),
@@ -226,10 +225,10 @@ class Cadastro extends StatelessWidget {
                           emailController.text != '' &&
                           passwordController.text != '') {
                         var usuario = await user.CadastrarUsuario(
-                            '${nameController.text}',
-                            '${emailController.text}',
-                            '${passwordController.text}');
-                        print(usuario.resultado);
+                            nameController.text,
+                            emailController.text,
+                            passwordController.text);
+
                         if (usuario.resultado == 0) {
                           Navigator.of(context).push(
                             MaterialPageRoute(
@@ -237,13 +236,11 @@ class Cadastro extends StatelessWidget {
                             ),
                           );
                         }
-                      } else {
-                        print("Senha invalida!");
                       }
                     },
-                    child: Text(
+                    child: const Text(
                       'Cadastrar',
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 18.0,
                       ),
@@ -265,50 +262,5 @@ class Cadastro extends StatelessWidget {
         ),
       ),
     );
-
-    // Container(
-    //   child: Scaffold(
-    //     body: FutureBuilder(
-    //       future: user.CadastrarUsuario("Luis", "luis@gmail.com", "123456"),
-    //       builder: (context, snapshot) {
-    //         if (snapshot.hasData) {
-    //           LoginApiModel user = snapshot.data as LoginApiModel;
-
-    //           if (user.resultado == 0)
-    //             return Center(
-    //               child: Container(
-    //                 child: Text(
-    //                   "Cadastrado",
-    //                   style: TextStyle(fontSize: 24),
-    //                 ),
-    //               ),
-    //             );
-    //           else
-    //             return Center(
-    //               child: Container(
-    //                 child: Text(
-    //                   "Usuario ja cadastrado",
-    //                   style: TextStyle(fontSize: 24),
-    //                 ),
-    //               ),
-    //             );
-    //         }
-    //         return const CircularProgressIndicator(
-    //           color: Colors.red,
-    //         );
-    //       },
-    //     ),
-    //     // Container(
-    //     //   child: ListView.builder(
-    //     //     itemCount: lista.dados != null ? lista.dados.lenth : 0,
-    //     //     itemBuilder: (context, i) {
-    //     //       final item = lista.dados[i];
-    //     //       print(lista);
-    //     //       return Container();
-    //     //     },
-    //     //   ),
-    //     // ),
-    //   ),
-    // );
   }
 }
